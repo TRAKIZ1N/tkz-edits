@@ -1,5 +1,6 @@
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   const scrollToServices = () => {
@@ -7,6 +8,10 @@ const HeroSection = () => {
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20TKZ%20Edits.", "_blank");
   };
 
   return (
@@ -30,10 +35,20 @@ const HeroSection = () => {
           Edição profissional de vídeos, fotos, slides, logotipos e websites.
         </p>
         
-        <button onClick={scrollToServices} className="group flex flex-col items-center mt-12 transition-all duration-300 hover:opacity-80">
-          <span className="text-sm text-lightgray-light mb-2">Descubra Nossos Serviços</span>
-          <ChevronDown className="text-gold-light animate-bounce" />
-        </button>
+        <div className="flex flex-col items-center space-y-6 mt-12">
+          <Button 
+            onClick={openWhatsApp}
+            className="whatsapp-btn bg-gold hover:bg-gold-light text-darkgray-dark font-semibold px-6 py-4 rounded-md transition-all duration-300 flex items-center space-x-2 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+          >
+            <Phone className="mr-2" size={20} />
+            <span>Fale Conosco Agora</span>
+          </Button>
+
+          <button onClick={scrollToServices} className="group flex flex-col items-center transition-all duration-300 hover:opacity-80">
+            <span className="text-sm text-lightgray-light mb-2">Descubra Nossos Serviços</span>
+            <ChevronDown className="text-gold-light animate-bounce" />
+          </button>
+        </div>
       </div>
     </section>
   );
